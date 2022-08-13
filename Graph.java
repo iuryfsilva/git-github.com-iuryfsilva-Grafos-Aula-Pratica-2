@@ -85,4 +85,18 @@ public class Graph {
     return g2;
   }
 
+	public boolean subGraph(Graph g2) {//This é o grafo atual
+    if(g2.getCountNodes() > this.countNodes || g2.getCountEdges() > this.countEdges){
+			return false;
+		}
+		for (int i = 0; i < g2.adjMatrix.length; ++i) {
+      for (int j = 0; j < g2.adjMatrix[i].length; ++j) {
+        if (g2.adjMatrix[i][j] != 0 && this.adjMatrix[i][j] == 0) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+	
 }
